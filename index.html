@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baharath Bathula | Portfolio</title>
+  <meta name="description" content="Portfolio of Baharath Bathula — Data Engineer, AI/ML Engineer, and Cloud Builder." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1a2b;
+      --panel: rgba(255,255,255,0.05);
+      --panel-strong: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --text: #eef4ff;
+      --muted: #b8c4db;
+      --accent: #67e8f9;
+      --accent-2: #8b5cf6;
+      --success: #86efac;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(103, 232, 249, 0.14), transparent 28%),
+        radial-gradient(circle at left center, rgba(139, 92, 246, 0.12), transparent 24%),
+        linear-gradient(180deg, #06101d 0%, #091526 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(103,232,249,0.28);
+      background: rgba(103,232,249,0.10);
+      color: #b8f3fb;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.12; }
+
+    .hero h1 {
+      margin-top: 18px;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      letter-spacing: -0.03em;
+    }
+
+    .hero p.lead {
+      margin: 18px 0 0;
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 18px;
+      padding: 13px 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: white;
+      color: #07111f;
+      box-shadow: var(--shadow);
+    }
+    .btn-secondary {
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+    .btn-accent {
+      border-color: rgba(103,232,249,0.25);
+      background: rgba(103,232,249,0.12);
+      color: #b8f3fb;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .snapshot {
+      padding: 24px;
+    }
+
+    .snapshot h3,
+    .section-intro h2 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+    }
+
+    .mini-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.77rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .highlight-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .highlight-item {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-intro {
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+
+    .section-intro p {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+
+    .about-grid,
+    .credibility-grid,
+    .contact-grid,
+    .bring-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .about-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card,
+    .project-card,
+    .info-card,
+    .stat-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d7e0f2;
+      font-size: 0.87rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(103,232,249,0.32);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .project-badge {
+      flex-shrink: 0;
+      font-size: 0.74rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(103,232,249,0.28);
+      background: rgba(103,232,249,0.10);
+      color: #b8f3fb;
+      font-weight: 700;
+    }
+
+    .project-subtitle {
+      color: #bfeff7;
+      font-size: 0.92rem;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .project-desc,
+    .muted {
+      color: var(--muted);
+    }
+
+    .project-desc { margin-top: 14px; }
+
+    .impact-box {
+      margin-top: 16px;
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.16);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .showcase-panel {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card h3 { font-size: 1.05rem; }
+    .stat-card p { color: var(--muted); margin: 10px 0 0; }
+
+    .github-preview {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .github-images {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .github-images img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .credibility-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .achievement-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .achievement-item {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 0.9fr;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .contact-item span {
+      display: block;
+      color: #97a8c9;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-item a,
+    .contact-item strong {
+      color: #b8f3fb;
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+    .footer {
+      padding: 26px 0 50px;
+      color: #97a8c9;
+      font-size: 0.92rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      margin: 10px 0 0;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .credibility-grid,
+      .projects-grid,
+      .showcase-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 44px; }
+      .container { width: min(var(--max), calc(100% - 22px)); }
+      .project-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Baharath <span>Bathula</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">Data Engineer • AI/ML Engineer • Cloud Builder</div>
+        <h1>Baharath Bathula</h1>
+        <p class="lead">
+          I design and build scalable data platforms, reliable backend systems, and AI-powered applications.
+          My work combines cloud data engineering, production-grade APIs, and modern GenAI architecture to solve real business problems.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="https://github.com/BaharathBathula" target="_blank" rel="noreferrer">GitHub Profile</a>
+          <a class="btn btn-accent" href="https://www.linkedin.com/in/baharath-bathula-0b0724171/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="card snapshot">
+        <div class="mini-label">Professional Snapshot</div>
+        <h3>Building systems that are scalable, reliable, and future-ready</h3>
+        <div class="highlight-list">
+          <div class="highlight-item">9+ years across data engineering, cloud platforms, analytics, and AI-driven solutions.</div>
+          <div class="highlight-item">Focused on scalable systems, modern data platforms, and production-ready AI applications.</div>
+          <div class="highlight-item">Building enterprise-grade projects aligned to SaaS, reliability, and AI governance.</div>
+          <div class="highlight-item">Actively developing public GitHub projects across AI research, quantum experimentation, and cloud-native data engineering.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="section-intro">
+          <div class="mini-label">About Me</div>
+          <h2>From architecture to execution</h2>
+          <p>
+            I am a technology professional focused on modern data engineering, cloud-native application development,
+            AI system design, and product-oriented technical execution. My portfolio reflects hands-on delivery across
+            backend systems, governance frameworks, observability, and advanced experimentation.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Data Engineering</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Spark</span>
+              <span class="tag">Airflow</span>
+              <span class="tag">ETL / ELT</span>
+              <span class="tag">Data Modeling</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Cloud & Platforms</h3>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Databricks</span>
+              <span class="tag">Snowflake</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>AI / ML</h3>
+            <div class="tags">
+              <span class="tag">Generative AI</span>
+              <span class="tag">RAG</span>
+              <span class="tag">LLM Evaluation</span>
+              <span class="tag">AI Governance</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Backend & APIs</h3>
+            <div class="tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">SQLAlchemy</span>
+              <span class="tag">Alembic</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-intro">
+          <div class="mini-label">AI / Data Engineering Project Showcase</div>
+          <h2>Selected AI, quantum, and data engineering work from my GitHub portfolio</h2>
+          <p>
+            These projects reflect my focus on AI systems, quantum experimentation, cloud-native architecture,
+            backend engineering, and data platform reliability.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div>
+                  <h3>Quantum Fraud Detection with Qiskit</h3>
+                  <div class="project-subtitle">Quantum ML Project for Fraud Detection</div>
+                </div>
+                <div class="project-badge">Featured</div>
+              </div>
+              <p class="project-desc">
+                A professional quantum computing project that explores fraud detection workflows using Qiskit,
+                quantum feature maps, and hybrid machine learning concepts for experimentation and research-style implementation.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Qiskit</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">Quantum ML</span>
+              </div>
+              <div class="impact-box"><strong style="color:white;">Why it matters:</strong> Demonstrates future-ready experimentation at the intersection of AI, ML, and quantum computing.</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-accent" href="https://github.com/BaharathBathula/quantum-fraud-detection-qiskit" target="_blank" rel="noreferrer">View Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div>
+                  <h3>ReliantAI</h3>
+                  <div class="project-subtitle">AI Governance & Responsible AI Toolkit</div>
+                </div>
+                <div class="project-badge">Featured</div>
+              </div>
+              <p class="project-desc">
+                A practical framework for AI governance, evaluation workflows, policy alignment, model observability,
+                and enterprise adoption readiness.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">LLMs</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Evaluation</span>
+                <span class="tag">Governance</span>
+              </div>
+              <div class="impact-box"><strong style="color:white;">Why it matters:</strong> Showcases applied GenAI architecture with enterprise governance focus.</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-accent" href="https://github.com/BaharathBathula/ReliantAI" target="_blank" rel="noreferrer">View Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div>
+                  <h3>Cloud Data SLA Monitor</h3>
+                  <div class="project-subtitle">Data Reliability & Observability Framework</div>
+                </div>
+                <div class="project-badge">Featured</div>
+              </div>
+              <p class="project-desc">
+                A reliability-focused data engineering project designed to monitor SLAs, pipeline freshness,
+                quality checks, and operational health across modern cloud data platforms.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Airflow</span>
+                <span class="tag">Databricks</span>
+                <span class="tag">Monitoring</span>
+              </div>
+              <div class="impact-box"><strong style="color:white;">Why it matters:</strong> Demonstrates production-minded data platform reliability engineering.</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-accent" href="https://github.com/BaharathBathula/cloud-data-sla-monitor" target="_blank" rel="noreferrer">View Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-top">
+                <div>
+                  <h3>ACCORDAI</h3>
+                  <div class="project-subtitle">AI-Powered Insurance Agency Management System</div>
+                </div>
+                <div class="project-badge">Featured</div>
+              </div>
+              <p class="project-desc">
+                A cloud-native SaaS platform for insurance agencies built to streamline policy workflows,
+                CRM operations, and AI-assisted agency management.
+              </p>
+              <div class="tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">SQLAlchemy</span>
+                <span class="tag">Alembic</span>
+                <span class="tag">SaaS</span>
+              </div>
+              <div class="impact-box"><strong style="color:white;">Why it matters:</strong> Built as a long-term commercial SaaS product with enterprise AMS vision.</div>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-secondary" href="https://github.com/BaharathBathula" target="_blank" rel="noreferrer">View GitHub Profile</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container showcase-panel">
+        <div class="stat-card">
+          <div class="mini-label" style="margin-bottom: 8px;">What I Bring</div>
+          <h3>Engineering Mindset</h3>
+          <p>I focus on practical, maintainable systems with strong attention to performance, reliability, and scalability.</p>
+        </div>
+        <div class="stat-card">
+          <div class="mini-label" style="margin-bottom: 8px;">What I Bring</div>
+          <h3>Product Thinking</h3>
+          <p>I build with real-world use cases in mind, aiming to turn technical solutions into meaningful products.</p>
+        </div>
+        <div class="stat-card">
+          <div class="mini-label" style="margin-bottom: 8px;">What I Bring</div>
+          <h3>Portfolio Execution</h3>
+          <p>My GitHub showcases AI, quantum, cloud, and data engineering work in a recruiter-friendly presentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="github">
+      <div class="container credibility-grid">
+        <div class="info-card">
+          <div class="mini-label">GitHub Presence</div>
+          <h2>GitHub stats & contribution graph</h2>
+          <p class="muted">
+            This section is GitHub Pages ready and already includes live GitHub stat cards.
+            It pulls from public GitHub stats image endpoints tied to your profile.
+          </p>
+          <div class="github-preview">
+            <a class="btn btn-accent" href="https://github.com/BaharathBathula" target="_blank" rel="noreferrer">View GitHub Profile</a>
+            <div class="github-images">
+              <img src="https://github-readme-stats.vercel.app/api?username=BaharathBathula&show_icons=true&hide_border=true&title_color=67e8f9&text_color=eef4ff&icon_color=67e8f9&bg_color=0d1a2b" alt="GitHub Stats for Baharath Bathula" />
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=BaharathBathula&layout=compact&hide_border=true&title_color=67e8f9&text_color=eef4ff&bg_color=0d1a2b" alt="Top Languages for Baharath Bathula" />
+              <img src="https://github-readme-activity-graph.vercel.app/graph?username=BaharathBathula&bg_color=0d1a2b&color=eef4ff&line=67e8f9&point=8b5cf6&area=true&hide_border=true" alt="GitHub Contribution Graph for Baharath Bathula" />
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card" id="achievements">
+          <div class="mini-label">Achievements & Publications</div>
+          <h2>Professional credibility beyond code</h2>
+          <div class="achievement-list">
+            <div class="achievement-item">Published technical book focused on designing scalable and reliable systems in production.</div>
+            <div class="achievement-item">Building enterprise-grade AI, governance, and data engineering frameworks through public GitHub projects.</div>
+            <div class="achievement-item">Active technical portfolio spanning AI systems, cloud-native backend engineering, reliability, and applied experimentation.</div>
+            <div class="achievement-item">Consistent public-facing work across GitHub, technical writing, and project documentation to strengthen professional brand and visibility.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="section-intro">
+          <div class="mini-label">Contact</div>
+          <h2>Let’s build something impactful</h2>
+          <p>
+            I’m open to roles, collaborations, and conversations around data engineering, AI systems,
+            cloud platforms, and product-driven technology initiatives.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="mailto:baharath.bathula@outlook.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/baharath-bathula-0b0724171/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Name</span>
+              <strong>Baharath Bathula</strong>
+            </div>
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:baharath.bathula@outlook.com">baharath.bathula@outlook.com</a>
+            </div>
+            <div class="contact-item">
+              <span>GitHub</span>
+              <a href="https://github.com/BaharathBathula" target="_blank" rel="noreferrer">github.com/BaharathBathula</a>
+            </div>
+            <div class="contact-item">
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/baharath-bathula-0b0724171/" target="_blank" rel="noreferrer">linkedin.com/in/baharath-bathula-0b0724171</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="divider"></div>
+      <p>© 2026 Baharath Bathula. Built for GitHub Pages deployment.</p>
+    </div>
+  </footer>
+</body>
+</html>
