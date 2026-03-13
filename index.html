@@ -137,6 +137,7 @@
       font-weight: 700;
       transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn:hover { transform: translateY(-1px); }
@@ -214,7 +215,9 @@
     .about-grid,
     .credibility-grid,
     .contact-grid,
-    .bring-grid {
+    .bring-grid,
+    .diagram-grid,
+    .repo-grid {
       display: grid;
       gap: 20px;
     }
@@ -233,7 +236,9 @@
     .skill-card,
     .project-card,
     .info-card,
-    .stat-card {
+    .stat-card,
+    .diagram-card,
+    .repo-card {
       padding: 22px;
       border-radius: var(--radius-lg);
       background: var(--panel);
@@ -334,8 +339,12 @@
       gap: 16px;
     }
 
-    .stat-card h3 { font-size: 1.05rem; }
-    .stat-card p { color: var(--muted); margin: 10px 0 0; }
+    .stat-card h3, .repo-card h3 { font-size: 1.05rem; }
+    .stat-card p, .repo-card p { color: var(--muted); margin: 10px 0 0; }
+
+    .diagram-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .diagram-card svg { width: 100%; height: auto; margin-top: 14px; border-radius: 16px; background: rgba(0,0,0,0.18); border: 1px solid rgba(255,255,255,0.08); }
+    .diagram-caption { margin-top: 12px; color: var(--muted); font-size: 0.92rem; }
 
     .github-preview {
       margin-top: 18px;
@@ -375,6 +384,11 @@
       border: 1px solid rgba(255,255,255,0.08);
       color: var(--muted);
     }
+
+    .repo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
+    .repo-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .repo-pill { font-size:0.78rem; padding:6px 10px; border-radius:999px; background: rgba(103,232,249,0.10); border:1px solid rgba(103,232,249,0.22); color:#b8f3fb; }
+    .repo-status { color:#97a8c9; font-size:0.88rem; margin-top:10px; }
 
     .contact-grid {
       grid-template-columns: 1fr 0.9fr;
@@ -419,7 +433,9 @@
       .contact-grid,
       .credibility-grid,
       .projects-grid,
-      .showcase-panel {
+      .showcase-panel,
+      .diagram-grid,
+      .repo-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -440,6 +456,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#diagrams">Architecture</a>
         <a href="#github">GitHub</a>
         <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
@@ -460,6 +477,8 @@
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn btn-secondary" href="https://github.com/BaharathBathula" target="_blank" rel="noreferrer">GitHub Profile</a>
           <a class="btn btn-accent" href="https://www.linkedin.com/in/baharath-bathula-0b0724171/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn btn-secondary" href="#published-links">Publications</a>
+          <a class="btn btn-primary" href="./Baharath_Bathula_Resume.pdf" download>Download Resume</a>
         </div>
       </div>
 
@@ -678,7 +697,143 @@
       </div>
     </section>
 
+    <section id="diagrams">
+      <div class="container">
+        <div class="section-intro">
+          <div class="mini-label">Professional Project Architecture Diagrams</div>
+          <h2>Visual system designs for flagship portfolio projects</h2>
+          <p>
+            These diagrams make the portfolio stronger for recruiters by showing architectural thinking, system boundaries,
+            and how each project fits real production use cases.
+          </p>
+        </div>
+
+        <div class="diagram-grid">
+          <div class="diagram-card">
+            <div class="mini-label">ReliantAI</div>
+            <h3>Enterprise AI governance workflow</h3>
+            <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ReliantAI architecture diagram">
+              <rect x="20" y="110" width="110" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="75" y="145" text-anchor="middle" fill="#eef4ff" font-size="16">Users</text>
+              <rect x="170" y="45" width="150" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="245" y="80" text-anchor="middle" fill="#eef4ff" font-size="15">Policy & Prompt</text>
+              <rect x="170" y="170" width="150" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="245" y="205" text-anchor="middle" fill="#eef4ff" font-size="15">Evaluation Engine</text>
+              <rect x="360" y="45" width="140" height="60" rx="14" fill="#1a2140" stroke="#8b5cf6"/>
+              <text x="430" y="80" text-anchor="middle" fill="#eef4ff" font-size="15">LLM / RAG Apps</text>
+              <rect x="360" y="170" width="140" height="60" rx="14" fill="#1a2140" stroke="#8b5cf6"/>
+              <text x="430" y="205" text-anchor="middle" fill="#eef4ff" font-size="15">Observability</text>
+              <line x1="130" y1="140" x2="170" y2="75" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="130" y1="140" x2="170" y2="200" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="320" y1="75" x2="360" y2="75" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="320" y1="200" x2="360" y2="200" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="430" y1="105" x2="430" y2="170" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="7 7"/>
+            </svg>
+            <div class="diagram-caption">Governance rules, evaluation, and observability wrap around enterprise AI applications.</div>
+          </div>
+
+          <div class="diagram-card">
+            <div class="mini-label">Cloud Data SLA Monitor</div>
+            <h3>Data reliability and SLA monitoring pipeline</h3>
+            <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cloud Data SLA Monitor architecture diagram">
+              <rect x="20" y="110" width="95" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="67" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">Sources</text>
+              <rect x="145" y="110" width="105" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="197" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">ETL / ELT</text>
+              <rect x="280" y="40" width="105" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="332" y="75" text-anchor="middle" fill="#eef4ff" font-size="14">Checks</text>
+              <rect x="280" y="180" width="105" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="332" y="215" text-anchor="middle" fill="#eef4ff" font-size="14">Metrics DB</text>
+              <rect x="415" y="110" width="85" height="60" rx="14" fill="#1a2140" stroke="#8b5cf6"/>
+              <text x="457" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">Alerts</text>
+              <line x1="115" y1="140" x2="145" y2="140" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="250" y1="140" x2="280" y2="70" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="250" y1="140" x2="280" y2="210" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="385" y1="70" x2="415" y2="140" stroke="#8b5cf6" stroke-width="3"/>
+              <line x1="385" y1="210" x2="415" y2="140" stroke="#8b5cf6" stroke-width="3"/>
+            </svg>
+            <div class="diagram-caption">Operational checks, freshness metrics, and alerting support a production-grade reliability layer.</div>
+          </div>
+
+          <div class="diagram-card">
+            <div class="mini-label">ACCORDAI</div>
+            <h3>Cloud-native SaaS backend architecture</h3>
+            <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ACCORDAI architecture diagram">
+              <rect x="20" y="110" width="100" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="70" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">Agency Users</text>
+              <rect x="150" y="110" width="110" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="205" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">FastAPI</text>
+              <rect x="290" y="40" width="100" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="340" y="75" text-anchor="middle" fill="#eef4ff" font-size="14">Auth / CRM</text>
+              <rect x="290" y="180" width="100" height="60" rx="14" fill="#10233a" stroke="#67e8f9"/>
+              <text x="340" y="215" text-anchor="middle" fill="#eef4ff" font-size="14">PostgreSQL</text>
+              <rect x="420" y="110" width="80" height="60" rx="14" fill="#1a2140" stroke="#8b5cf6"/>
+              <text x="460" y="145" text-anchor="middle" fill="#eef4ff" font-size="14">AI Layer</text>
+              <line x1="120" y1="140" x2="150" y2="140" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="260" y1="140" x2="290" y2="70" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="260" y1="140" x2="290" y2="210" stroke="#67e8f9" stroke-width="3"/>
+              <line x1="390" y1="70" x2="420" y2="140" stroke="#8b5cf6" stroke-width="3"/>
+              <line x1="390" y1="210" x2="420" y2="140" stroke="#8b5cf6" stroke-width="3"/>
+            </svg>
+            <div class="diagram-caption">A product-oriented backend combines agency workflows, data storage, and AI-enabled features.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="published-links">
+      <div class="container credibility-grid">
+        <div class="info-card">
+          <div class="mini-label">Writing & Thought Leadership</div>
+          <h2>Medium, Substack & published material</h2>
+          <p class="muted">
+            This section is ready for your external writing and publication links. Replace the placeholder URLs below with your real Medium, Substack, and Amazon Kindle links.
+          </p>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <strong style="color:white; display:block; margin-bottom:6px;">Medium</strong>
+              <a href="https://medium.com/@baharath.bathula" target="_blank" style="color:#b8f3fb;">https://medium.com/@baharath.bathula</a>
+            </div>
+            <div class="achievement-item">
+              <strong style="color:white; display:block; margin-bottom:6px;">Substack</strong>
+              <a href="https://substack.com/@baharathbathula" target="_blank" style="color:#b8f3fb;">https://substack.com/@baharathbathula</a>
+            </div>
+            <div class="achievement-item">
+              <strong style="color:white; display:block; margin-bottom:6px;">Amazon Kindle Publications</strong>
+              <a href="https://www.amazon.com/DESIGNING-SCALABLE-RELIABLE-SYSTEMS-PRODUCTION-ebook/dp/B0GDZ7YFFC" target="_blank" style="color:#b8f3fb; display:block; margin-bottom:6px;">Designing Scalable Reliable Systems in Production</a>
+              <a href="https://www.amazon.com/COFFEE-CAREERS-DATA-DRIVES-EVERYDAY-ebook/dp/B0FQTM21W1" target="_blank" style="color:#b8f3fb;">Coffee to Careers: How Data Drives Everyday Decisions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="mini-label">Public Profile Strength</div>
+          <h2>Why these links matter</h2>
+          <div class="achievement-list">
+            <div class="achievement-item">Medium helps showcase technical writing, thought leadership, and audience engagement.</div>
+            <div class="achievement-item">Substack strengthens your personal brand with long-form newsletter publishing and recurring content.</div>
+            <div class="achievement-item">Amazon Kindle published material adds visible authorship and strengthens your professional portfolio beyond code.</div>
+            <div class="achievement-item">Together, these links make your portfolio more credible for recruiters, collaborators, and professional recognition.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="github">
+      <div class="container">
+        <div class="section-intro">
+          <div class="mini-label">Live GitHub Repo Cards</div>
+          <h2>Auto-updating public repositories</h2>
+          <p>
+            This section fetches your latest public repository information directly from GitHub each time the page loads.
+            It makes your portfolio feel dynamic and current.
+          </p>
+        </div>
+        <div id="repo-grid" class="repo-grid">
+          <div class="repo-card"><h3>Loading repositories...</h3><p>Fetching latest public repository data from GitHub.</p></div>
+        </div>
+      </div>
+
       <div class="container credibility-grid">
         <div class="info-card">
           <div class="mini-label">GitHub Presence</div>
@@ -721,6 +876,7 @@
           </p>
           <div class="button-row">
             <a class="btn btn-primary" href="mailto:baharath.bathula@outlook.com">Email Me</a>
+            <a class="btn btn-accent" href="./Baharath_Bathula_Resume.pdf" download>Download Resume</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/baharath-bathula-0b0724171/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
@@ -755,5 +911,70 @@
       <p>© 2026 Baharath Bathula. Built for GitHub Pages deployment.</p>
     </div>
   </footer>
+  <script>
+    const pinnedRepos = [
+      'quantum-fraud-detection-qiskit',
+      'ReliantAI',
+      'cloud-data-sla-monitor'
+    ];
+
+    function formatDate(dateString) {
+      const d = new Date(dateString);
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function repoCard(repo) {
+      const language = repo.language ? `<span class="repo-pill">${repo.language}</span>` : '';
+      const topics = (repo.topics || []).slice(0, 3).map(topic => `<span class="repo-pill">${topic}</span>`).join('');
+      return `
+        <article class="repo-card">
+          <div>
+            <h3>${repo.name}</h3>
+            <p>${repo.description || 'Public repository from Baharath Bathula.'}</p>
+            <div class="repo-meta">
+              ${language}
+              <span class="repo-pill">★ ${repo.stargazers_count}</span>
+              <span class="repo-pill">Forks ${repo.forks_count}</span>
+              ${topics}
+            </div>
+            <div class="repo-status">Updated ${formatDate(repo.updated_at)}</div>
+          </div>
+          <div class="project-actions">
+            <a class="btn btn-accent" href="${repo.html_url}" target="_blank" rel="noreferrer">Open Repo</a>
+          </div>
+        </article>
+      `;
+    }
+
+    async function loadRepos() {
+      const container = document.getElementById('repo-grid');
+      if (!container) return;
+      try {
+        const response = await fetch('https://api.github.com/users/BaharathBathula/repos?sort=updated&per_page=100');
+        if (!response.ok) throw new Error('GitHub API request failed');
+        const repos = await response.json();
+        const selected = [];
+        pinnedRepos.forEach(name => {
+          const found = repos.find(r => r.name === name);
+          if (found) selected.push(found);
+        });
+        repos.forEach(r => {
+          if (selected.length < 6 && !selected.some(s => s.name === r.name) && !r.fork) {
+            selected.push(r);
+          }
+        });
+        container.innerHTML = selected.slice(0, 6).map(repoCard).join('');
+      } catch (error) {
+        container.innerHTML = `
+          <article class="repo-card">
+            <h3>Could not load live repositories</h3>
+            <p>GitHub API data could not be fetched at the moment. Your static featured projects above still work normally.</p>
+          </article>
+        `;
+      }
+    }
+
+    loadRepos();
+  </script>
 </body>
 </html>
