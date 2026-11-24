@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baharathbathula.com/sitemap.xml
